@@ -50,8 +50,8 @@
           <img src="images/envelope.png" alt="" class="envelope-icon">
           <h2 class="h4" id="t-cta">Contribute to Our Fund</h2>
           <div class="payment-info">
-            <p>Venmo: <strong>@Gabriel-Killy</strong></p>
-            <p>Zelle: <strong>(915) 449-3373</strong></p>
+            <p>Venmo: <a href="https://venmo.com/u/Gabriel-Killy" target="_blank" rel="noopener" class="venmo-link"><strong>@Gabriel-Killy</strong></a></p>
+            <p>Zelle: <strong>(915) 449-3373 <button id="zelle-copy-btn" class="zelle-copy">Copy #</button></strong></p>
           </div>
         </div>
       </div>
@@ -89,6 +89,14 @@
         'footer': '- Con Cariño, Nayeli &amp; Gabby',
       }
     };
+
+    const zelleCopyBtn = document.getElementById('zelle-copy-btn');
+    zelleCopyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('9154493373').then(() => {
+        zelleCopyBtn.textContent = 'Copied!';
+        setTimeout(() => zelleCopyBtn.textContent = 'Copy #', 1800);
+      });
+    });
 
     const buttons = document.querySelectorAll('.lang-btn');
 

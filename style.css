@@ -9,6 +9,8 @@
 :root {
   --navy:       #082b82;
   --body-color: #334267;
+  --body-color-light: #5a6d9d;
+
   --bg:         #f4efeb;
 
   --font-serif: 'Maname', serif;
@@ -194,12 +196,35 @@ body {
 .payment-info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   width: 100%;
 }
 
 .payment-info strong {
   font-weight: 800;
+}
+
+.venmo-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.zelle-copy {
+  font: inherit;
+  color: var(--body-color-light);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+  transition: opacity 0.15s;
+  margin-left: 4px;
+}
+
+.zelle-copy:active {
+  opacity: 0.3;
 }
 
 /* ─── Footer section ─────────────────────────────────────────── */
