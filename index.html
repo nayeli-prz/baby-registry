@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nayeli & Gabriel's Baby Fund</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&family=Maname&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scallop border — full viewport width, outside page container -->
+  <div class="scallop-border" aria-hidden="true">
+    <img src="images/Scallop Border.png" alt="">
+  </div>
+
+  <div class="page">
+
+    <!-- Animal illustration header -->
+    <header class="header-band">
+      <picture>
+        <source media="(min-width: 1000px)" srcset="images/Animals-Wide.png">
+        <img src="images/Animals-Narrow.png" alt="Animal illustrations">
+      </picture>
+    </header>
+
+    <!-- Language toggle -->
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <span class="lang-divider" aria-hidden="true">|</span>
+      <button class="lang-btn" data-lang="es">ESP</button>
+    </div>
+
+    <!-- Main content -->
+    <main class="main-section">
+
+      <h1 class="h1" id="t-title">Nayeli &amp; Gabriel's<br>Baby Fund</h1>
+
+      <div class="body-note">
+        <p id="t-note-1">We're skipping the traditional registry, and waiting to discover what our baby boy will need. We hope to choose a few quality pieces along the way!</p>
+        <p id="t-note-2">If you'd like to celebrate with us, you can contribute to our cash fund. Your generosity is so meaningful!</p>
+      </div>
+
+      <div class="cta-wrapper">
+        <div class="cta-content">
+          <img src="images/envelope.png" alt="" class="envelope-icon">
+          <h2 class="h4" id="t-cta">Contribute to Our Fund</h2>
+          <div class="payment-info">
+            <p>Venmo: <strong>@Gabriel-Killy</strong></p>
+            <p>Zelle: <strong>(915) 449-3373</strong></p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <div class="polaroids">
+        <picture>
+          <source media="(min-width: 1000px)" srcset="images/Polaroids-Wide.png">
+          <img src="images/Polaroids-Narrow.png" alt="Photos of Nayeli and Gabriel">
+        </picture>
+      </div>
+      <p class="h4 footer-text" id="t-footer">- With Love, Nayeli &amp; Gabby</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        'title':  'Nayeli &amp; Gabriel\'s<br>Baby Fund',
+        'note-1': 'We\'re skipping the traditional registry, and waiting to discover what our baby boy will need. We hope to choose a few quality pieces along the way!',
+        'note-2': 'If you\'d like to celebrate with us, you can contribute to our cash fund. Your generosity is so meaningful!',
+        'cta':    'Contribute to Our Fund',
+        'footer': '- With Love, Nayeli &amp; Gabby',
+      },
+      es: {
+        'title':  'Nayeli &amp; Gabriel\'s<br>Baby Fund',
+        'note-1': '¡Decidimos no hacer un registro tradicional, y queremos esperar para descubrir lo que nuestro bebé necesite. ¡Esperamos elegir algunas piezas especiales en el camino!',
+        'note-2': 'Si quieres celebrar con nosotros, puedes contribuir a nuestro fondo. ¡Tu generosidad significa mucho para nosotros!',
+        'cta':    'Contribuye a Nuestro Fondo',
+        'footer': '- Con Cariño, Nayeli &amp; Gabby',
+      }
+    };
+
+    const buttons = document.querySelectorAll('.lang-btn');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        buttons.forEach(b => b.classList.toggle('active', b === btn));
+        document.documentElement.lang = lang;
+
+        const t = translations[lang];
+        document.getElementById('t-title').innerHTML  = t['title'];
+        document.getElementById('t-note-1').textContent = t['note-1'];
+        document.getElementById('t-note-2').textContent = t['note-2'];
+        document.getElementById('t-cta').textContent    = t['cta'];
+        document.getElementById('t-footer').innerHTML  = t['footer'];
+      });
+    });
+  </script>
+
+</body>
+</html>

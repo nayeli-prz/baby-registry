@@ -1,0 +1,247 @@
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Design tokens ──────────────────────────────────────────── */
+:root {
+  --navy:       #082b82;
+  --body-color: #334267;
+  --bg:         #f4efeb;
+
+  --font-serif: 'Maname', serif;
+  --font-sans:  'Hanken Grotesk', sans-serif;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ─── Page container ─────────────────────────────────────────── */
+.page {
+  position: relative;
+  width: 100%;
+  //max-width: 393px;
+  padding: 0 24px 100px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ─── Type system ────────────────────────────────────────────── */
+.h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 42px;
+  color: var(--navy);
+  letter-spacing: 7.5px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.h4 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--navy);
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.body-text,
+.body-note p,
+.payment-info p {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--body-color);
+  letter-spacing: 0.54px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ─── Scallop border ─────────────────────────────────────────── */
+.scallop-border {
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.scallop-border img {
+  display: block;
+  position: relative;
+  width: 1889px;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ─── Header band ────────────────────────────────────────────── */
+.header-band {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header-band img {
+  width: 348px;
+  height: auto;
+}
+
+/* ─── Language toggle ────────────────────────────────────────── */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.lang-btn {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--body-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.35;
+  transition: opacity 0.15s;
+}
+
+.lang-btn.active {
+  opacity: 1;
+  color: var(--navy);
+}
+
+.lang-divider {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--body-color);
+  opacity: 0.35;
+  user-select: none;
+}
+
+/* ─── Main section ───────────────────────────────────────────── */
+.main-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+  padding-bottom: 70px;
+}
+
+/* Body note (two paragraphs) */
+.body-note {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ─── CTA box ────────────────────────────────────────────────── */
+.cta-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #8aa5cf;
+}
+
+.cta-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid #8aa5cf;
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 40px;
+}
+
+.envelope-icon {
+  width: 57px;
+  height: 57px;
+  object-fit: contain;
+}
+
+.payment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.payment-info strong {
+  font-weight: 800;
+}
+
+/* ─── Footer section ─────────────────────────────────────────── */
+.footer-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ─── Polaroids ──────────────────────────────────────────────── */
+.polaroids {
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+.polaroids img {
+  width: 602px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ─── Footer text ────────────────────────────────────────────── */
+.footer-text {
+  font-size: 22px;
+  letter-spacing: 2.2px;
+}
+
+/* ─── Wide breakpoint (1000px+) ──────────────────────────────── */
+@media (min-width: 1000px) {
+  .page {
+    gap: 16px;
+  }
+
+  .main-section {
+    max-width: 700px;
+  }
+
+  .header-band img {
+    width: 684px;
+  }
+
+  .polaroids img {
+    width: 876px;
+  }
+}
